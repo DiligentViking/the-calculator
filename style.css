@@ -1,0 +1,30 @@
+html,
+body {
+  height: 99.6%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#calculator {
+  background-color: rgb(82, 82, 82);
+  padding: 5px;
+  width: 400px;
+  height: 500px;
+  /* note no border box */
+}
+
+#display {
+  background-color: gray;
+  border: 2px solid black;
+  height: 100px;
+  box-sizing: border-box;
+}
+
+#operators {
+  display: flex;
+  /* justify-content: space-between; */
+}
