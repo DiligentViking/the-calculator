@@ -16,13 +16,13 @@ function divide(num1, num2) {
 
 function operate(operator, num1, num2) {
   switch (operator) {
-    case '+':
+    case 'add':
       return add(num1, num2);
-    case '-':
+    case 'subtract':
       return subtract(num1, num2);
-    case '*':
+    case 'multiply':
       return mulitply(num1, num2);
-    case '/':
+    case 'divide':
       return divide(num1, num2);
   }
 }
@@ -38,7 +38,7 @@ calculator.addEventListener('click', (event) => {
   const button = event.target.id;
   if ('0123456789'.includes(button)) {
     display.textContent += button;
-  } else if ('+-*/'.includes(button)) {
+  } else if ('add subtract multiply divide'.includes(button)) {
     operator = button;
     num1 = +display.textContent;
     display.textContent = '';
