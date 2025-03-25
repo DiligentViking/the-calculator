@@ -10,8 +10,9 @@ body {
 }
 
 #calculator {
-  background-color: rgb(82, 82, 82);
-  padding: 5px;
+  background-color: rgb(70, 70, 70);
+  /* font-size: 50px; */
+  padding: 6px;
   width: 400px;
   height: 500px;
   /* note no border box */
@@ -25,6 +26,13 @@ body {
 }
 
 #operators {
+  height: 100px;
   display: flex;
-  /* justify-content: space-between; */
+  gap: 4px;
+}
+
+#operators * {
+  margin: 2px 0px;
+  box-sizing: border-box;
+  flex: 1;
 }
