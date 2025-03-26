@@ -60,6 +60,10 @@ body {
   flex: 1 1 80px;
 }
 
+#numbers #dot {
+  flex-grow: 0.162;  /* i just jerry-rigged this */
+}
+
 #bottom-group {
   height: 300px;  /* i feel like this is not-so responsive design */
   display: flex;

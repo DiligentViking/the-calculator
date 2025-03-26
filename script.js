@@ -39,9 +39,11 @@ const display = document.querySelector('#display');
 const topDisplay = document.querySelector('#top-display');
 
 calculator.addEventListener('click', (event) => {
-  const button = event.target.id;
-  if ('0123456789'.includes(button) && phase !== 3) {
-    display.textContent += button;
+  let button = event.target.id;
+  if ('0123456789dot'.includes(button) && phase !== 3) {
+    // if (button == 'dot') console.log('dot');
+    if (button == 'dot') display.textContent += (display.textContent.includes('.')) ? '' : '.';
+    else display.textContent += button;
     display.textContent = +display.textContent;
 
   } else if ('+-*/'.includes(button) && phase !== 2) {
