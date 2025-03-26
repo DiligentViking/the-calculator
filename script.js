@@ -44,7 +44,7 @@ calculator.addEventListener('click', (event) => {
     display.textContent += button;
     display.textContent = +display.textContent;
 
-  } else if ('+-*/'.includes(button) && phase == 1) {
+  } else if ('+-*/'.includes(button) && phase !== 2) {
     phase = 2;
     operator = button;
     num1 = +display.textContent;
@@ -57,12 +57,13 @@ calculator.addEventListener('click', (event) => {
       num1 = operate(operator, num1, num2);}
     operator = button;
     display.textContent = '0';
-    topDisplay.textContent = `${num1} ${operator}`;
+    topDisplay.textContent = `${num1} ${operator} `;
 
   } else if (button == 'enter' && phase == 2) {
     phase = 3;
     num2 = +display.textContent;
-    display.textContent = operate(operator, num1, num2);
+    num1 = operate(operator, num1, num2);
+    display.textContent = num1;
     topDisplay.textContent += num2;
 
   } else if (button == 'clear') {
