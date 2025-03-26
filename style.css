@@ -27,11 +27,24 @@ body {
   font-family: monospace;
 }
 
-#display {
-  background-color: gray;
+#display-container {
+  background-color: rgb(170, 170, 170);
   border: 2px solid black;
-  height: 100px;
+  padding: 6px;
   box-sizing: border-box;
+  height: 100px;
+}
+
+#top-display {
+  font-size: 25px;
+  color: rgb(77, 77, 77);
+  height: 25%;
+}
+
+#display {
+  font-size: 40px;
+  text-align: right;
+  height: 75%;
 }
 
 #operators {

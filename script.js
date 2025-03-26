@@ -52,4 +52,3 @@ calculator.addEventListener('click', (event) => {
     display.textContent = '';
   }
 });
-
