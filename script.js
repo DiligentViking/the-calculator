@@ -41,7 +41,6 @@ const topDisplay = document.querySelector('#top-display');
 calculator.addEventListener('click', (event) => {
   const button = event.target.id;
   if ('0123456789'.includes(button) && phase !== 3) {
-    // if (+display.textContent === 0 && +button == '0') display.textContent = '0';
     display.textContent += button;
     display.textContent = +display.textContent;
 
@@ -49,8 +48,16 @@ calculator.addEventListener('click', (event) => {
     phase = 2;
     operator = button;
     num1 = +display.textContent;
-    display.textContent = '';
+    display.textContent = '0';
     topDisplay.textContent = `${num1} ${operator} `;
+
+  } else if ('+-*/'.includes(button) && phase == 2) {  // a shortcut
+    num2 = +display.textContent;
+    if (display.textContent !== '0') {
+      num1 = operate(operator, num1, num2);}
+    operator = button;
+    display.textContent = '0';
+    topDisplay.textContent = `${num1} ${operator}`;
 
   } else if (button == 'enter' && phase == 2) {
     phase = 3;
@@ -63,7 +70,7 @@ calculator.addEventListener('click', (event) => {
     operator = '';
     num1 = '';
     num2 = '';
-    display.textContent = '';
+    display.textContent = '0';
     topDisplay.textContent = '';
   }
 });
