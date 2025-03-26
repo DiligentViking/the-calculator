@@ -28,27 +28,36 @@ function operate(operator, num1, num2) {
 }
 
 
+let phase = 1;
 let operator;
 let num1;
 let num2;
 
 const calculator = document.querySelector('#calculator');
 const display = document.querySelector('#display');
+const topDisplay = document.querySelector('#top-display');
+
 calculator.addEventListener('click', (event) => {
   const button = event.target.id;
-  if ('0123456789'.includes(button)) {
+  if ('0123456789'.includes(button) && phase !== 3) {
     display.textContent += button;
-  } else if ('+-*/'.includes(button)) {
+  } else if ('+-*/'.includes(button) && phase == 1) {
+    phase = 2;
     operator = button;
     num1 = +display.textContent;
     display.textContent = '';
-  } else if (button == 'enter') {
+    topDisplay.textContent = `${num1} ${operator} `;
+  } else if (button == 'enter' && phase == 2) {
+    phase = 3;
     num2 = +display.textContent;
     display.textContent = operate(operator, num1, num2);
+    topDisplay.textContent += num2;
   } else if (button == 'clear') {
+    phase = 1;
     operator = '';
     num1 = '';
     num2 = '';
     display.textContent = '';
+    topDisplay.textContent = '';
   }
 });
