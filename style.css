@@ -16,6 +16,8 @@ body {
   width: 400px;
   height: 500px;
   /* note no border box */
+  /* display: flex; */
+  /* flex-direction: column; */
 }
 
 #display {
@@ -31,8 +33,32 @@ body {
   gap: 4px;
 }
 
-#operators * {
+#operators *,
+#numbers * {
   margin: 2px 0px;
   box-sizing: border-box;
+  flex: 1 1 80px;
+}
+
+#bottom-group {
+  height: 300px;  /* i feel like this is not-so responsive design */
+  display: flex;
+}
+
+#numbers {
+  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+}
+
+#control {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+#control * {
   flex: 1;
+  margin: 2px 0px 2px 2px;
 }
