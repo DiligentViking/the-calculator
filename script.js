@@ -41,18 +41,23 @@ const topDisplay = document.querySelector('#top-display');
 calculator.addEventListener('click', (event) => {
   const button = event.target.id;
   if ('0123456789'.includes(button) && phase !== 3) {
+    // if (+display.textContent === 0 && +button == '0') display.textContent = '0';
     display.textContent += button;
+    display.textContent = +display.textContent;
+
   } else if ('+-*/'.includes(button) && phase == 1) {
     phase = 2;
     operator = button;
     num1 = +display.textContent;
     display.textContent = '';
     topDisplay.textContent = `${num1} ${operator} `;
+
   } else if (button == 'enter' && phase == 2) {
     phase = 3;
     num2 = +display.textContent;
     display.textContent = operate(operator, num1, num2);
     topDisplay.textContent += num2;
+
   } else if (button == 'clear') {
     phase = 1;
     operator = '';
